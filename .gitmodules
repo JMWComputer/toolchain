@@ -1,0 +1,9 @@
+[submodule "tools/emulator"]
+	path = tools/emulator
+	url = https://github.com/JMWComputer/x69Emulator
+[submodule "tools/assembler"]
+	path = tools/assembler
+	url = https://github.com/JMWComputer/Assembler
+[submodule "tools/compiler"]
+	path = tools/compiler
+	url = https://github.com/JMWComputer/JMWC
