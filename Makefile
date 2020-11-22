@@ -22,16 +22,16 @@ EMULATOR = $(OUTPUT_DIR)\emu.exe
 ALL: $(EMULATOR)
 
 $(EMULATOR): $(ASSEMBLER)
-	-cmake -S $(EMU_ROOT) -B $(EMU_BUILD_DIR) 
-	-cmake --build $(EMU_BUILD_DIR)
-	-copy /n /b $(EMU_BUILD_FILE) $(EMULATOR)
+	cmake -S $(EMU_ROOT) -B $(EMU_BUILD_DIR) 
+	cmake --build $(EMU_BUILD_DIR)
+	copy /n /b $(EMU_BUILD_FILE) $(EMULATOR)
 
 $(ASSEMBLER): UPDATE_SUBMODULES
-	-cargo build --release --manifest-path $(AS_ROOT)/Cargo.toml
-	-copy /n /b $(AS_BUILD_FILE) $(ASSEMBLER)
+	cargo build --release --manifest-path $(AS_ROOT)\Cargo.toml
+	copy /n /b $(AS_BUILD_FILE) $(ASSEMBLER)
 
 UPDATE_SUBMODULES: CLEAN
-	-git submodule update --recursive --remote
+	git submodule update --recursive --remote
 	 
 CLEAN:
 	-rmdir /s /q $(OUTPUT_DIR)
